@@ -160,8 +160,8 @@ Now that we have our header file and class code, we can proceed to use it. This 
 
 ```c++
 
-#include<library1>
-#include<library2>
+#include <library1>
+#include <library2>
 //and so on...
 
 using namespace std; //You can generally always write this namespace (gives tidier code)
@@ -273,7 +273,7 @@ execute:
   ./main.out
 ```
 
-Notice how we replaced writing out all .cpp files explicitly by replacing them with $(wildcard *.cpp). This tells the compiler to search for all files that ends with .cpp and compile them. To compile and execute the code, you simply write "make all" as usual.
+Notice how we replaced writing out all .cpp files explicitly by $(wildcard *.cpp). This tells the compiler to search for all files that ends with .cpp and compile them. To compile and execute the code, you simply write "make all" as usual.
 
 
 #### That's it! A small hands-on tutorial on how to write a class that implements the trapezoidal rule in C++.
