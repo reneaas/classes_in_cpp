@@ -35,17 +35,17 @@ At this point, you may wonder: where do we start? The answer is, the header file
 We begin our project by thinking about what type of functions we need. In our problem we need the following:
 
 1. A function that initializes the solver
-  - This usually means that we specify certain parameters of the class.
-  - For the trapezoidal rule this means to specify the integration limits and how many integration points we want.
-  - In some cases, this could mean a function that reads data from a file and initializes parameters in the class.
+    * This usually means that we specify certain parameters of the class.
+    * For the trapezoidal rule this means to specify the integration limits and how many integration points we want.
+    * In some cases, this could mean a function that reads data from a file and initializes parameters in the class.
 
 2. A function that solves the problem
-  - This is not necessarily always a single function though.
-  - In our case, it suffices to have a single function that implements the trapezoidal rule for integration, since this algorithm is pretty simple.
+    * This is not necessarily always a single function though.
+    * In our case, it suffices to have a single function that implements the trapezoidal rule for integration, since this algorithm is pretty simple.
 
 3. A function that writes to file or provides output.
-  - In our case, we will just print the computed value to the terminal.
-  - In many cases though, it's necessary to write computed values to a file, but we'll restrict ourselves to simply printing the result.
+    * In our case, we will just print the computed value to the terminal.
+    * In many cases though, it's necessary to write computed values to a file, but we'll restrict ourselves to simply printing the result.
 
 
 #### Structure of the header file
