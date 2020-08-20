@@ -1,7 +1,7 @@
 # Classes in C++
 
 This repository contains a basic introduction to classes in C++. We use the trapezoidal rule for integration as the solution to a basic numerical integration problem.
-We develop a class called Trapezoidal that serve as the integration solver. It is aimed at people new to C++ that studies computational science or similar subjects.
+We develop a class called Trapezoidal that serve as the integration solver. It's aimed at people new to C++ that studies computational science or similar subjects.
 
 ### Direct links to the actual codes:
   - [trapezoidal.hpp](https://github.com/reneaas/classes_in_cpp/blob/master/trapezoidal.hpp)
@@ -21,11 +21,12 @@ There are 4 basic ingredients we need when we use classes in C++:
     * In our case, we use it to solve a given integral.
 
 2. A class code, usually named class_name.cpp
-    * In our case, it would be called trapezoidal.cpp.
+    * In our case, it's called trapezoidal.cpp.
     * This is where all functions are specified.
 
 3. A header file, usually names class_name.hpp
     * This is where we declare the class, its variables and functions/methods.
+    * In our case, it's called trapezoidal.hpp
 
 4. A makefile
     * A makefile is usually just called a makefile or Makefile.
@@ -68,8 +69,16 @@ public:
 };
 #endif
 ```
+Note that there's a couple lines here that is necessary to avoid compiling the functions more than once. The block
+```c++
+#ifndef HEADERFILENAME_HPP
+#define HEADEFILERNAME_HPP
+/* class declaration */
+#endif
+```
+tells the compiler that this code block should only be compiled once (so always do this).
 
-In our case, this basic formula translates to the following header file (recall that we called the header file trapezoidal.hpp):
+In our case, this basic formula above translates to the following header file (recall that we called the header file trapezoidal.hpp):
 
 ```c++
 #ifndef TRAPEZOIDAL_HPP
@@ -93,8 +102,8 @@ public:
 ```
 
 Let's discuss a few details here:
-- We have to sections: *private* and *public*.
-  1. In the *private* section we declare variables that we need inside the class but that we do not need to access directly from outside the class. (I typically declare all my variables private and use class functions to print, write to file and so forth so I never need to manually change anything)
+- We have two sections: *private* and *public*.
+  1. In the *private* section we declare variables that we need inside the class but do not need to access directly from outside the class. (I typically declare all my variables private and use class functions to print, write to file and so forth so I never need to manually change anything - neither should you).
   2. The *public* section is where we declare the class functions.
       * You may declare variables here too if you want to access or change them from the outside of the class, but we'll restrict ourselves to the simpler case where no variable is public.
 - I've used "m_" in all the class variables. This is to distinguish them from the variables we send in. As a result, we get a better overview of which variables belong to the class (called member variables), and which variables do not.
@@ -153,8 +162,9 @@ Now that we have our header file and class code, we can proceed to use it. This 
 
 #include<library1>
 #include<library2>
+//and so on...
 
-using namespace std; //You can generally always write this namespace in.
+using namespace std; //You can generally always write this namespace (gives tidier code)
 
 int main(int argc, char const *argv[]) {
   /* Write your code here */
@@ -165,7 +175,7 @@ int main(int argc, char const *argv[]) {
 You do not need to worry to much about that the arguments to the main function is for our purpose. In our case, the realization is
 
 ```c++
-#include "trapesmetoden.hpp"
+#include "trapezoidal.hpp"
 #include <iostream>     //Need it to print stuff
 #include <cmath>        //Need math functions
 
@@ -198,7 +208,7 @@ double f(double x){
 ### Makefile
 At this point we're done with the codes, but how do we run them? Let's tackle this.
 
-In this case, the makefile need only looks as follows
+In this case, the makefile need only look as follows
 
 ```makefile
 all: compile execute
@@ -211,16 +221,16 @@ execute:
 ```
 
 Let's discuss this in some detail:
-1. The top line tells the computer that if we write the following the terminal,
+1. The top line tells the computer that if we write the following in the terminal,
   ```terminal
   make all
   ```
   it should do both the "compile" and "execute" part.
 
-2. The "compile" part is essentially how to compile the code without any fancy optimizations and stuff. It compiles all the .cpp codes and places the runable or *executable* program in "main.out".
+2. The "compile" part is essentially how to compile the code without any fancy optimizations and stuff. It compiles all the .cpp codes and places the *executable* program in "main.out" (the computer translates the code into "machine language" so that it can be run).
 3. The "execute" part tells the computer to run the executeable file "main.out".
-    * the dot "." in "./main.exe" tells the computer that the file in is the current directory.
-    * In other words, "./main.exe" is the full so-called *path* to the executable file.
+    * the dot "." in "./main.out" tells the computer that the file in is the current directory.
+    * In other words, "./main.out" is the full so-called *path* to the executable file.
 
 For the codes written in this small tutorial, we get the following output when we write "make all":
 
@@ -234,5 +244,36 @@ Integral = 0.633121
 - The second and third line is just the computer telling us precisely which instructions it performs.
 - The fourth line is the output from the executable file, which in our case is an approximation to the integral.
 
+#### Doing specific parts of the makefile
 
-#### That's it! A small hands-on tutorial on how to write a class in C++.
+Instead of writing
+```terminal
+make all
+```
+you could write,
+```terminal
+make compile
+make execute
+```
+in the terminal. This will do exactly the same.
+
+
+#### A more clever way to write the makefile
+
+If you have many .cpp files, there's a way to avoid writing out their names explicitly.
+This is done by using the so-called *wildcard* function supported by *make*
+
+```makefile
+all: compile execute
+
+compile:
+  c++ -o main.out $(wildcard *.cpp)
+
+execute:
+  ./main.out
+```
+
+Notice how we replaced writing out all .cpp files explicitly by replacing them with $(wildcard *.cpp). This tells the compiler to search for all files that ends with .cpp and compile them. To compile and execute the code, you simply write "make all" as usual.
+
+
+#### That's it! A small hands-on tutorial on how to write a class that implements the trapezoidal rule in C++.
