@@ -93,7 +93,7 @@ Let's discuss a few details here:
 - We have to sections: *private* and *public*.
   1. In the *private* section we declare variables that we need inside the class but that we do not need to access directly from outside the class. (I typically declare all my variables private and use class functions to print, write to file and so forth so I never need to manually change anything)
   2. The *public* section is where we declare the class functions.
-    - You may declare variables here too if you want to access or change them from the outside of the class, but we'll restrict ourselves to the simpler case where no variable is public.
+      * You may declare variables here too if you want to access or change them from the outside of the class, but we'll restrict ourselves to the simpler case where no variable is public.
 - I've used "m_" in all the class variables. This is to distinguish them from the variables we send in. As a result, we get a better overview of which variables belong to the class (called member variables), and which variables do not.
   - You can think of "m_" as the analogue to "self." in python, but it's not something you *must* write in C++.
   - It's just a convention so that when other people read your code, they can more easily understand it.
@@ -140,7 +140,7 @@ Let's look at some details here:
 
 1. We must include the header file at the top. We use #include" " instead of #include< > for header files.
 2. When we specify the function, we must write:
-  - Type ClassName::FunctionName(arguments)
+    * Type ClassName::FunctionName(arguments)
 
 ### The main code
 
@@ -216,8 +216,8 @@ Let's discuss this in some detail:
 
 2. The "compile" part is essentially how to compile the code without any fancy optimizations and stuff. It compiles all the .cpp codes and places the runable or *executable* program in "main.out".
 3. The "execute" part tells the computer to run the executeable file "main.out".
-  - the dot "." in "./main.exe" tells the computer that the file in is the current directory.
-  - In other words, "./main.exe" is the full so-called *path* to the executable file.
+    * the dot "." in "./main.exe" tells the computer that the file in is the current directory.
+    * In other words, "./main.exe" is the full so-called *path* to the executable file.
 
 For the codes written in this small tutorial, we get the following output when we write "make all":
 
