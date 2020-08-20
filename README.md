@@ -14,19 +14,19 @@ We develop a class called Trapezoidal that serve as the integration solver. It i
 There are 4 basic ingredients we need when we use classes in C++:
 
 1. A main code, usually called main.cpp.
-  1. The main program is where you use the actual class.
-  2. In our case, we use it to solve a given integral.
+    * The main program is where you use the actual class.
+    * In our case, we use it to solve a given integral.
 
 2. A class code, usually named class_name.cpp
-  1. In our case, it would be called trapezoidal.cpp.
-  2. This is where all functions are specified.
+    * In our case, it would be called trapezoidal.cpp.
+    * This is where all functions are specified.
 
 3. A header file, usually names class_name.hpp
-  1. This is where we declare the class, its variables and functions/methods.
+    * This is where we declare the class, its variables and functions/methods.
 
 4. A makefile
-  1. A makefile is usually just called a makefile or Makefile.
-  2. This is where you instruct the compiler to compile and execute the code.
+    * A makefile is usually just called a makefile or Makefile.
+    * This is where you instruct the compiler to compile and execute the code.
 
 
 At this point, you may wonder: where do we start? The answer is, the header file.
