@@ -1,26 +1,32 @@
 # Classes in C++
 
 This repository contains a basic introduction to classes in C++. We use the trapezoidal rule for integration as the solution to a basic numerical integration problem.
-We develop a class called Trapezoidal that serve as the integration solver. It is aimed at people new to C++ that studies computational science or similar subjects. 
+We develop a class called Trapezoidal that serve as the integration solver. It is aimed at people new to C++ that studies computational science or similar subjects.
+
+### Direct links to the actual codes:
+  - [trapezoidal.hpp](https://github.com/reneaas/classes_in_cpp/blob/master/trapezoidal.hpp)
+  - [trapezoidal.cpp](https://github.com/reneaas/classes_in_cpp/blob/master/trapezoidal.cpp)
+  - [makefile](https://github.com/reneaas/classes_in_cpp/blob/master/makefile)
+  - [main.cpp](https://github.com/reneaas/classes_in_cpp/blob/master/main.cpp)
 
 ### Basic ingredients of classes in C++
 
 There are 4 basic ingredients we need when we use classes in C++:
 
 1. A main code, usually called main.cpp.
-  - The main program is where you use the actual class.
-  - In our case, we use it to solve a given integral.
+  1. The main program is where you use the actual class.
+  2. In our case, we use it to solve a given integral.
 
 2. A class code, usually named class_name.cpp
-  - In our case, it would be called trapezoidal.cpp.
-  - This is where all functions are specified.
+  1. In our case, it would be called trapezoidal.cpp.
+  2. This is where all functions are specified.
 
 3. A header file, usually names class_name.hpp
-  - This is where we declare the class, its variables and functions/methods.
+  1. This is where we declare the class, its variables and functions/methods.
 
 4. A makefile
-  - A makefile is usually just called a makefile or Makefile.
-  - This is where you instruct the compiler to compile and execute the code.
+  1. A makefile is usually just called a makefile or Makefile.
+  2. This is where you instruct the compiler to compile and execute the code.
 
 
 At this point, you may wonder: where do we start? The answer is, the header file.
