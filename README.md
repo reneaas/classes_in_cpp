@@ -214,10 +214,10 @@ In this case, the makefile need only look as follows
 all: compile execute
 
 compile:
-	c++ -o main.out main.cpp trapezoidal.cpp
+  c++ -o main.out main.cpp trapezoidal.cpp
 
 execute:
-	./main.out
+  ./main.out
 ```
 
 Let's discuss this in some detail:
