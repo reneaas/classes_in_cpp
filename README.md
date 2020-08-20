@@ -9,6 +9,9 @@ We develop a class called Trapezoidal that serve as the integration solver. It i
   - [makefile](https://github.com/reneaas/classes_in_cpp/blob/master/makefile)
   - [main.cpp](https://github.com/reneaas/classes_in_cpp/blob/master/main.cpp)
 
+### The integral we solve and the numerical algorithm:
+  - [Can be found here](https://github.com/reneaas/classes_in_cpp/blob/master/classes_cpp.pdf)
+
 ### Basic ingredients of classes in C++
 
 There are 4 basic ingredients we need when we use classes in C++:
