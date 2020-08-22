@@ -289,7 +289,7 @@ you already have a C++ compiler and can proceed. If not, you must install it on 
     ```terminal
     sudo apt install gcc g++ -y
     ```
-  * On macOS your simply install Xcode from the app store (if you've installed homebrew, you've implicitly installed Xcode and don't need to worry about this).
+  * On macOS you simply install Xcode from the app store (if you've installed homebrew, you've implicitly installed Xcode and don't need to worry about this).
   * On Windows, the C++ compiler is bundled with Visual Studio Code.
 
 In this case, the makefile need only look as follows
