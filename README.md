@@ -25,42 +25,54 @@ Before we process to look at classes, we just wanna summarize some basic details
       N = 100
       ```
     * In C++ we must declare the variables and tell the compiler what *types* they are:
+
     ```C++
     double a = 2.0;
     int N = 100;
     ```
+
     * In C++ we can also declare it without specifying which value it has, and then assign a value later:
-  ```C++
-  double a;
-  int N;
-  a = 2.0;
-  N = 100;
-  ```
-  Also, note that each line ends with ";".
+
+    ```C++
+    double a;
+    int N;
+    a = 2.0;
+    N = 100;
+    ```
+
+      * Also, note that each line ends with ";".
 3. When we define functions, we must also specify the function's type. Say we have some function that returns a floating point number.
     * In python, this would simply be something like this:
+
     ```python
     def f(x):
       return x**2
     ```
+
     * While in C++, it would look like this:
+
     ```C++
     double f(double x){
       return x*x;
     }
     ```
+
 4. *For*-loops are pretty straight forward to implement.
     * In python, it would look something like this
+
     ```python
     for i in range(N):
         #code block
     ```
+    
     * In C++, the same for loop looks like this:
+
     ```C++
     for (int i = 0; i < N; i++){
         /* Code block */
     }
     ```
+
       * The "i++" part is equivalent with i = i + 1 or i+=1 in Python.
 5. From a few of the examples above, you may be wondering why there are *curly-brackets* (i.e {...}) in some the C++ codes. This is simply to tell the compiler what belongs to a certain code block.
 
