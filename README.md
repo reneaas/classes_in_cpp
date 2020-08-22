@@ -19,17 +19,17 @@ Before we process to look at classes, we just wanna summarize some basic details
 1. Code lines in a C++ code ends with ";". This tells the compiler that the current line has ended.
 2. Contrary to Python codes, we must *declare* variables in C++. We'll show this by an example: Say we have a variable *a = 2.0* which is a floating point number and a variable *N = 100* which is an integer.
 
-    - In python this could simply be written as:
+    * In python this could simply be written as:
       ```python
       a = 2.0
       N = 100
       ```
-    - In C++ we must declare the variables and tell the compiler what *types* they are:
+    * In C++ we must declare the variables and tell the compiler what *types* they are:
     ```C++
     double a = 2.0;
     int N = 100;
     ```
-    - In C++ we can also declare it without specifying which value it has, and then assign a value later:
+    * In C++ we can also declare it without specifying which value it has, and then assign a value later:
   ```C++
   double a;
   int N;
@@ -38,24 +38,24 @@ Before we process to look at classes, we just wanna summarize some basic details
   ```
   Also, note that each line ends with ";".
 3. When we define functions, we must also specify the function's type. Say we have some function that returns a floating point number.
-    - In python, this would simply be something like this:
+    * In python, this would simply be something like this:
     ```python
     def f(x):
       return x**2
     ```
-    - While in C++, it would look like this:
+    * While in C++, it would look like this:
     ```C++
     double f(double x){
       return x*x;
     }
     ```
 4. *For*-loops are pretty straight forward to implement.
-    - In python, it would look something like this
+    * In python, it would look something like this
     ```python
     for i in range(N):
         #code block
     ```
-    - In C++, the same for loop looks like this:
+    * In C++, the same for loop looks like this:
     ```C++
     for (int i = 0; i < N; i++){
         /* Code block */
