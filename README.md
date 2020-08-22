@@ -172,7 +172,7 @@ int main(int argc, char const *argv[]) {
 }
 ```
 
-You do not need to worry to much about that the arguments to the main function is for our purpose. In our case, the realization is
+For our purposes, you don't need to worry too much about what the arguments to the main function does. In our case, the realization is
 
 ```c++
 #include "trapezoidal.hpp"
@@ -229,7 +229,7 @@ Let's discuss this in some detail:
 
 2. The "compile" part is essentially how to compile the code without any fancy optimizations and stuff. It compiles all the .cpp codes and places the *executable* program in "main.out" (the computer translates the code into "machine language" so that it can be run).
 3. The "execute" part tells the computer to run the executeable file "main.out".
-    * the dot "." in "./main.out" tells the computer that the file in is the current directory.
+    * the dot "." in "./main.out" tells the computer that the file is in the current directory.
     * In other words, "./main.out" is the full so-called *path* to the executable file.
 
 For the codes written in this small tutorial, we get the following output when we write "make all":
@@ -260,8 +260,8 @@ in the terminal. This will do exactly the same.
 
 #### A more clever way to write the makefile
 
-If you have many .cpp files, there's a way to avoid writing out their names explicitly.
-This is done by using the so-called *wildcard* function supported by *make*
+If you have many .cpp files, there's a way to avoid writing out all their names explicitly.
+This is done by using the so-called *wildcard* function provided by *make*
 
 ```makefile
 all: compile execute
