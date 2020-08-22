@@ -18,17 +18,18 @@ Before we process to look at classes, we just wanna summarize some basic details
 
 1. Code lines in a C++ code ends with ";". This tells the compiler that the current line has ended.
 2. Contrary to Python codes, we must *declare* variables in C++. We'll show this by an example: Say we have a variable *a = 2.0* which is a floating point number and a variable *N = 100* which is an integer.
-  * In python this could simply be written as:
-    ```python
-    a = 2.0
-    N = 100
-    ```
-  * In C++ we must declare the variables and tell the compiler what *types* they are:
+
+    - In python this could simply be written as:
+      ```python
+      a = 2.0
+      N = 100
+      ```
+    - In C++ we must declare the variables and tell the compiler what *types* they are:
     ```C++
     double a = 2.0;
     int N = 100;
     ```
-  * In C++ we can also declare it without specifying which value it has, and then assign a value later:
+    - In C++ we can also declare it without specifying which value it has, and then assign a value later:
   ```C++
   double a;
   int N;
@@ -37,30 +38,30 @@ Before we process to look at classes, we just wanna summarize some basic details
   ```
   Also, note that each line ends with ";".
 3. When we define functions, we must also specify the function's type. Say we have some function that returns a floating point number.
-  * In python, this would simply be something like this:
+    - In python, this would simply be something like this:
     ```python
     def f(x):
       return x**2
     ```
-  * While in C++, it would look like this:
+    - While in C++, it would look like this:
     ```C++
     double f(double x){
       return x*x;
     }
     ```
 4. *For*-loops are pretty straight forward to implement.
-  * In python, it would look something like this
+    - In python, it would look something like this
     ```python
     for i in range(N):
         #code block
     ```
-  * In C++, the same for loop looks like this:
+    - In C++, the same for loop looks like this:
     ```C++
     for (int i = 0; i < N; i++){
         /* Code block */
     }
     ```
-    * The "i++" part is equivalent with i = i + 1 or i+=1 in Python.
+      * The "i++" part is equivalent with i = i + 1 or i+=1 in Python.
 5. From a few of the examples above, you may be wondering why there are *curly-brackets* (i.e {...}) in some the C++ codes. This is simply to tell the compiler what belongs to a certain code block.
 
 ### Basic ingredients of classes in C++
@@ -157,7 +158,7 @@ Let's discuss a few details here:
   1. In the *private* section we declare variables that we need inside the class but do not need to access directly from outside the class. (I typically declare all my variables private and use class functions to print, write to file and so forth so I never need to manually change anything - neither should you).
     * *All* the class functions/methods can access these private variables.
     * This means that we rarely need to *return* anything from class functions and simply use type *void*.
-    * A function of type *void*, is simply a function that returns nothing at all. 
+    * A function of type *void*, is simply a function that returns nothing at all.
   2. The *public* section is where we declare the class functions.
       * You may declare variables here too if you want to access or change them from the outside of the class, but we'll restrict ourselves to the simpler case where no variable is public.
 - I've used "m_" in all the class variables. This is to distinguish them from the variables we send in. As a result, we get a better overview of which variables belong to the class (called member variables), and which variables do not.
