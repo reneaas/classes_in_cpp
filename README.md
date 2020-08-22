@@ -64,7 +64,7 @@ Before we process to look at classes, we just wanna summarize some basic details
     for i in range(N):
         #code block
     ```
-    
+
     * In C++, the same for loop looks like this:
 
     ```C++
@@ -274,6 +274,23 @@ double f(double x){
 
 ### Makefile
 At this point we're done with the codes, but how do we run them? Let's tackle this.
+
+First of all, we must make sure we have a C++ compiler on our computer. To check this, write the following in your terminal and hit enter:
+
+```terminal
+which c++
+```
+If your output is something like this:
+```terminal
+/usr/bin/c++
+```
+you already have a C++ compiler and can proceed. If not, you must install it on your computer.
+  * On Ubuntu this is done by the following command:
+    ```terminal
+    sudo apt install gcc g++ -y
+    ```
+  * On macOS your simply install Xcode from the app store (if you've installed homebrew, you've implicitly installed Xcode and don't need to worry about this).
+  * On Windows, the C++ compiler is bundled with Visual Studio Code.
 
 In this case, the makefile need only look as follows
 
