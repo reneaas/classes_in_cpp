@@ -312,6 +312,7 @@ Let's discuss this in some detail:
   it should do both the "compile" and "execute" part.
 
 2. The "compile" part is essentially how to compile the code without any fancy optimizations and stuff. It compiles all the .cpp codes and places the *executable* program in "main.out" (the computer translates the code into "machine language" so that it can be run).
+    * The first name that follows "-o" will be the name of the executable. So here it will be "main.out"
 3. The "execute" part tells the computer to run the executeable file "main.out".
     * the dot "." in "./main.out" tells the computer that the file is in the current directory.
     * In other words, "./main.out" is the full so-called *path* to the executable file.
