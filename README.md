@@ -157,9 +157,9 @@ private:
 
 
 public:
-  void Initialize(double a, double b, int N);     //Initialize the parameters m_a, m_b,
-  void Integrate(double f(double x));
-  void Print();
+  void Initialize(double a, double b, int N);     //Initialize the parameters m_a, m_b  N
+  void Integrate(double f(double x));         //Integrate the function
+  void Print();                               //Print result to command line
 };
 
 #endif
