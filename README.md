@@ -136,7 +136,7 @@ public:
 Note that there's a couple lines here that is necessary to avoid compiling the functions more than once. The block
 ```c++
 #ifndef HEADERFILENAME_HPP
-#define HEADEFILERNAME_HPP
+#define HEADERFILENAME_HPP
 /* class declaration */
 #endif
 ```
