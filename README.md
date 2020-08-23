@@ -317,7 +317,7 @@ Let's discuss this in some detail:
     * the dot "." in "./main.out" tells the computer that the file is in the current directory.
     * In other words, "./main.out" is the so-called *relative path* to the executable file (that is, the full path from the current directory to the file's location).
 
-For the codes written in this small tutorial, we get the following output when we write "make all":
+For the codes written in this small tutorial, we get the following output when we write "make all" in the terminal:
 
 ```terminal
 make all
