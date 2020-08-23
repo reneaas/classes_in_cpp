@@ -122,7 +122,7 @@ The basic structure of the header file should be something like this:
 
 ```c++
 #ifndef HEADERFILENAME_HPP
-#define HEADEFILERNAME_HPP
+#define HEADERFILENAME_HPP
 
 class ClassName {
 private:
