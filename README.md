@@ -176,7 +176,7 @@ Let's discuss a few details here:
 - I've used "m_" in all the class variables. This is to distinguish them from the variables we send in. As a result, we get a better overview of which variables belong to the class (called member variables), and which variables do not.
   - You can think of "m_" as the analogue to "self." in python, but it's not something you *must* write in C++.
   - It's just a convention so that when other people read your code, they can more easily understand it.
-- All the functions are defined as type *void*. This is because we don't really need access to the variables in any way since we're going to create a class function that prints the result to the screen. After all, all functions inside the class has access to the variables in under the "private" section.
+- All the functions are defined as type *void*. This is because we don't really need access to the variables in any way since we're going to create a class function that prints the result to the screen. After all, all functions inside the class has access to the all member variables that are "private".
 
 
 ### The class code
