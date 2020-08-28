@@ -93,7 +93,7 @@ There are 4 basic ingredients we need when we use classes in C++:
     * In our case, it's called trapezoidal.hpp
 
 4. A makefile
-    * A makefile is usually just called a makefile or Makefile.
+    * A makefile is either called makefile or Makefile (no file extension, the file should be created with either of these names).
     * This is where you instruct the compiler to compile and execute the code.
 
 
