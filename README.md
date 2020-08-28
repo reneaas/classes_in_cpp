@@ -171,6 +171,7 @@ Let's discuss a few details here:
       * *All* the class functions/methods can access these private variables.
       * This means that we rarely need to *return* anything from class functions and simply use type *void*.
       * A function of type *void*, is simply a function that returns nothing at all.
+      * You *may* declare functions as private as well. But only member functions of the class will be able to use private functions. This is useful in cases where you want to break a large algorithm into smaller parts that can easily be debugged. 
   2. The *public* section is where we declare the class functions.
       * You may declare variables here too if you want to access or change them from the outside of the class, but we'll restrict ourselves to the simpler case where no variable is public.
 - I've used "m_" in all the class variables. This is to distinguish them from the variables we send in. As a result, we get a better overview of which variables belong to the class (called member variables), and which variables do not.
