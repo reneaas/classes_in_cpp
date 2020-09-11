@@ -11,9 +11,9 @@ A couple notes on what you can expect from this tutorial:
 1. We assume you've completed [project 1](http://compphysics.github.io/ComputationalPhysics/doc/Projects/2020/Project1/pdf/Project1.pdf) in FYS3150. The purpose here is that we show you an efficient and clean way to write codes so that you can compare and contrast with your own codes, and base future projects in the course on the implementations shown here.
 2. We describe what a *superclass* and a *derived class* is, and how to implement them using project 1 as the example.
 3. We show you how to automate tasks using python scripts using the *os* library. This is a very useful library that can perform a lot of tasks that you'd normally have to do manually.
-  - You can compile and execute codes (instead of using makefiles). Using a python script is usually more flexible (and far more useful).
-  - You can create directories and move files that you codes produce around.
-  - And much more. More on this at the end of the tutorial.
+    - You can compile and execute codes (instead of using makefiles). Using a python script is usually more flexible (and far more useful).
+    - You can create directories and move files that you codes produce around.
+    - And much more. More on this at the end of the tutorial.
 4. We extensively use Armadillo to store values instead of pointers as these are much easier to handle in C++ and give a more readable code. We recommend you do the same in future projects.
 
 Now that the baseline for tutorial is established, let's commence and dive into the intricacies of what lies ahead and improve our coding skills in C++!
@@ -102,16 +102,16 @@ public:
 ```
 Let's break the code down (and the motivation for all its content):
 1. Notice that in the superclass, we've declared member variables as *protected* instead of *private*.
-  - But why? From the previous tutorial, we declared the variables as private.
-  - The reason is that derived classes can *only* inherit variables and methods that are declared as *protected* or *public*. Thus, we must avoid using *private* unless the variables are only needed by the superclass.
-  - Yes, we mentioned this above, but we want to stress the point :-)
+    - But why? From the previous tutorial, we declared the variables as private.
+    - The reason is that derived classes can *only* inherit variables and methods that are declared as *protected* or *public*. Thus, we must avoid using *private* unless the variables are only needed by the superclass.
+    - Yes, we mentioned this above, but we want to stress the point :-)
 2. The protected member variables are variables that are needed by *all* or *most* derived classes. Otherwise, the variables should be declared in the derived class instead.
-  - Here we've declared a set of variables that all derived classes will use:
-      1. *m_N* is the size of the vectors.
-      2. *m_q* is the RHS of the matrix equation studied here.
-      3. *m_x* is the mesh points which is computed using *m_stepsize*.
-      4. *m_v* is the solution vector of the matrix equation Av=q.
-  - Notice, however, that *m_stepsize* is declared as private in the superclass since this member variable is only used by the superclass and so inheritance by derived classes is unnecessary.
+    - Here we've declared a set of variables that all derived classes will use:
+        1. *m_N* is the size of the vectors.
+        2. *m_q* is the RHS of the matrix equation studied here.
+        3. *m_x* is the mesh points which is computed using *m_stepsize*.
+        4. *m_v* is the solution vector of the matrix equation Av=q.
+    - Notice, however, that *m_stepsize* is declared as private in the superclass since this member variable is only used by the superclass and so inheritance by derived classes is unnecessary.
 3. The public methods should be needed by every (or more than one) derived class, or else it should be declared in the derived class instead.
 4. The *initialize* method should only contain code that *all* or *most* derived classes need.
 5. The *write_to_file* method is there because every derived class will need to write their result to file. This too should be implemented in such a way that every derived class can use it.
@@ -200,14 +200,14 @@ Let's break down the content here:
 
 1. We must include the header file.
 2. The *initialize* method only contains code that is needed by all derived classes:
-  - We specify the parameter m_N (which is the length of the vectors in the class).
-  - We use this parameter to specify:
-    * The stepsize *m_stepsize*
-    * The solution vector *m_v*
-    * The mesh point vector *m_x*
-    * The right hand side vector *m_q*.
+    - We specify the parameter m_N (which is the length of the vectors in the class).
+    - We use this parameter to specify:
+      * The stepsize *m_stepsize*
+      * The solution vector *m_v*
+      * The mesh point vector *m_x*
+      * The right hand side vector *m_q*.
 3. The *write_to_file* contains code that writes the mesh points *m_x* and the solution vector *m_v* to a given file named *filename*
-  - This is needed by all derived classes.
+    - This is needed by all derived classes.
 
 It should be clear now, that the superclass only contain methods that are generic enough that they can be used by any derived class. Even though the derived classes we've created (which we'll study shortly) implement different algorithms, they all need to initialize certain variables and they all need to write their results to a file.
 
@@ -253,13 +253,13 @@ void ThomasSolver::backward_substitution()
 Breakdown time (no crying though, this is all fun):
 1. Again, we've included the header file at the top.
 2. The *init* method:
-  - First of all, it calls the *initialize* method inherited from the superclass *TridiagonalMatrixSolver*.
-      * This is to initialize the member variables that are generically implemented in the superclass, but is simultaneously needed by the derived class before anything else can be done.
-  - Then it initializes details specific to itself.
-      * We initialize the upper off-diagonal vector *m_a* with values -1.
-      * We initialize the diagonal vector *m_b* with values 2.
-      * We initialize the lower off-diagonal vector *m_c* with values -1.
-      * Finally, we intialize the solution vector *m_v* with zeros.
+    - First of all, it calls the *initialize* method inherited from the superclass *TridiagonalMatrixSolver*.
+        * This is to initialize the member variables that are generically implemented in the superclass, but is simultaneously needed by the derived class before anything else can be done.
+    - Then it initializes details specific to itself.
+        * We initialize the upper off-diagonal vector *m_a* with values -1.
+        * We initialize the diagonal vector *m_b* with values 2.
+        * We initialize the lower off-diagonal vector *m_c* with values -1.
+        * Finally, we intialize the solution vector *m_v* with zeros.
 3. The *forward_substitution* method implements the generalized forward substitution algorithm.
 4. The *backward_substitution* method implements the generalized backward substitution algorithm
 5. Note that both *forward_substitution* and *backward_substitution* are declared as *private* functions in the header file.
@@ -495,6 +495,6 @@ Always use Python for data analysis, plotting and so on. Only use C++ to perform
   2. Moving plots, results etc and creating directories..
     * Never again will you do this manually, eh? :)
   3. Data analysis like computing relative error and so on.
-  4.
+  
 
 ##### That's all for now! We hope this tutorial illustrates how useful it is to use superclasses combined with derived classes, and how powerful it is to use Python as a tool for automation with the help from the library *os*.
