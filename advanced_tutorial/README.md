@@ -96,7 +96,7 @@ protected:
   ofstream m_ofile;
 
 public:
-  void initialize(int N, double f(double x));
+  void initialize(int N, vec f(vec x));
   void write_to_file(string filename);
 };
 ```
@@ -136,7 +136,7 @@ protected:
   ofstream m_ofile;
 
 public:
-  void initialize(int N, double f(double x));
+  void initialize(int N, vec f(vec x));
   void write_to_file(string filename);
 };
 
@@ -147,7 +147,7 @@ private:
   void forward_substitution();
   void backward_substitution();
 public:
-  void init(int N, double f(double x));
+  void init(int N, vec f(vec x));
   void solve();
 };
 
@@ -156,7 +156,7 @@ private:
   void forward_substitution();
   void backward_substitution();
 public:
-  void init(int N, double f(double x));
+  void init(int N, vec f(vec x));
   void solve();
 };
 
@@ -172,7 +172,7 @@ Moving forward, let's look at the specific implementation of the superclass foun
 ```C++
 #include "tridiagonalmatrixsolver.hpp"
 
-void TridiagonalMatrixSolver::initialize(int N, double f(double x))
+void TridiagonalMatrixSolver::initialize(int N, vec f(vec x))
 {
   m_N = N;
   m_stepsize = 1./(m_N+1);
@@ -180,10 +180,7 @@ void TridiagonalMatrixSolver::initialize(int N, double f(double x))
   m_v = vec(m_N);
   m_x = linspace(m_stepsize, 1-m_stepsize, m_N);
   double hh = m_stepsize*m_stepsize;
-
-  for (int i = 0; i < m_N; i++){
-    m_q(i) = hh*f(m_x(i));
-  }
+  m_q = hh*f(m_x);
 }
 
 void TridiagonalMatrixSolver::write_to_file(string filename)
@@ -216,7 +213,7 @@ We've called the first derived class *ThomasSolver*. This class contains variabl
 ```C++
 #include "tridiagonalmatrixsolver.hpp"
 
-void ThomasSolver::init(int N, double f(double x))
+void ThomasSolver::init(int N, vec f(vec x))
 {
   initialize(N, f);  //ThomasSolver inherited this from TridiagonalMatrixSolver, so we can freely use it here.
   m_a = vec(m_N).fill(-1.);
@@ -275,7 +272,7 @@ We've implemented the specialized Thomas algorithm in a similar way. The code is
 #include "tridiagonalmatrixsolver.hpp"
 
 
-void SpecialThomasSolver::init(int N, double f(double x)){
+void SpecialThomasSolver::init(int N, vec f(vec x)){
   initialize(N, f);
 }
 
@@ -447,8 +444,11 @@ This is used together with the *main.cpp* code
 #include <cmath>
 #include <string>
 #include <time.h>
+#include <armadillo>
 
-double f(double x);
+using namespace arma;
+
+vec f(vec x);
 
 int main(int argc, char const *argv[]) {
 
@@ -481,7 +481,7 @@ int main(int argc, char const *argv[]) {
   return 0;
 }
 
-double f(double x){
+vec f(vec x){
   return 100.*exp(-10*x);
 }
 

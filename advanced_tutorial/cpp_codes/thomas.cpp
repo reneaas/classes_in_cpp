@@ -1,6 +1,6 @@
 #include "tridiagonalmatrixsolver.hpp"
 
-void ThomasSolver::init(int N, double f(double x))
+void ThomasSolver::init(int N, vec f(vec x))
 {
   initialize(N, f);  //ThomasSolver inherited this from TridiagonalMatrixSolver, so we can freely use it here.
   m_a = vec(m_N).fill(-1.);

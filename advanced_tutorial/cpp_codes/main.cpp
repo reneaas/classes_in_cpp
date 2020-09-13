@@ -2,8 +2,11 @@
 #include <cmath>
 #include <string>
 #include <time.h>
+#include <armadillo>
 
-double f(double x);
+using namespace arma;
+
+vec f(vec x);
 
 int main(int argc, char const *argv[]) {
 
@@ -36,6 +39,6 @@ int main(int argc, char const *argv[]) {
   return 0;
 }
 
-double f(double x){
+vec f(vec x){
   return 100.*exp(-10*x);
 }

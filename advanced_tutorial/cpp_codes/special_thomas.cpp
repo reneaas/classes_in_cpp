@@ -1,7 +1,7 @@
 #include "tridiagonalmatrixsolver.hpp"
 
 
-void SpecialThomasSolver::init(int N, double f(double x)){
+void SpecialThomasSolver::init(int N, vec f(vec x)){
   initialize(N, f); //SpecialThomasSolver inherited this from TridiagonalMatrixSolver, so we can use it here.
 }
 

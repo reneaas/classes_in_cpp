@@ -27,7 +27,7 @@ protected:
   ofstream m_ofile;
 
 public:
-  void initialize(int N, double f(double x));
+  void initialize(int N, vec f(vec x));
   void write_to_file(string filename);
 };
 
@@ -48,7 +48,7 @@ private:
   void forward_substitution();
   void backward_substitution();
 public:
-  void init(int N, double f(double x));
+  void init(int N, vec f(vec x));
   void solve();
 };
 
@@ -64,7 +64,7 @@ private:
   void forward_substitution();
   void backward_substitution();
 public:
-  void init(int N, double f(double x));
+  void init(int N, vec f(vec x));
   void solve();
 };
 
