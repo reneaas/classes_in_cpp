@@ -176,7 +176,7 @@ void TridiagonalMatrixSolver::initialize(int N, vec f(vec x))
   double h = 1./(m_N+1);
   m_q = vec(m_N);
   m_v = vec(m_N);
-  m_x = linspace(m_stepsize, 1-m_stepsize, m_N);
+  m_x = linspace(h, 1-h, m_N); //Only interior points of the mesh.
   m_q = h*h*f(m_x);
 }
 
