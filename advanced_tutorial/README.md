@@ -1,6 +1,6 @@
 ### The extended class tutorial: Superclasses, derived classes and a  tridiagonal matrix solver for a toeplitz matrix solving the Poisson equation.
 
-This tutorial is a extension of the class previous class tutorial where we implemented a simple class to solve an integral numerically using the trapezoidal rule. In many cases, though, the problems we want to solve are far more complicated and require much more code. In these cases, it's very useful to organize our codes into a more hierarchical way in the following sense:
+This tutorial is a extension of the previous class tutorial where we implemented a simple class to solve an integral numerically using the trapezoidal rule. In many cases, though, the problems we want to solve are far more complicated and require much more code. In these cases, it's very useful to organize our codes into a more hierarchical way in the following sense:
   1. Codes that are needed for multiple purposes are only written *once*.
   2. The code project as a whole is organized in a logical way so that the codes becomes easily readable, "debuggable" and usage becomes a breeze
 
@@ -495,6 +495,6 @@ Always use Python for data analysis, plotting and so on. Only use C++ to perform
   2. Moving plots, results etc and creating directories..
     * Never again will you do this manually, eh? :)
   3. Data analysis like computing relative error and so on.
-  
+
 
 ##### That's all for now! We hope this tutorial illustrates how useful it is to use superclasses combined with derived classes, and how powerful it is to use Python as a tool for automation with the help from the library *os*.
