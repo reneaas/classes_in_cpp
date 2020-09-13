@@ -124,7 +124,6 @@ Moving on, we'll first list the declaration of the superclass and its derived cl
 #define TridiagonalMatrixSolver_HPP
 #include <fstream>
 #include <armadillo>
-#include <iostream>
 
 using namespace std;
 using namespace arma;
@@ -411,16 +410,18 @@ algorithm = input("Choose algorithm: general/special: ")
 
 filename_plot = "_".join([algorithm, "solution", str(N)]) + ".pdf" #Name of figure file
 filename_data = "_".join([algorithm, "N", str(N)]) + ".txt" #Name of data file.
-plot_path = "./plots" #Directory to place figure file.
-data_path = "./results" #Directory to place data file.
+plot_path = "/".join([".", "plots", algorithm]) #Directory to place the figure
+data_path = "/".join([".", "results", algorithm]) #Directory to place the data file.
 
 #Using *.cpp is so-called RegEx (regular expression) that searches for all files that ends with .cpp and applies the command you've written to them.
 #In this case, we want to search the directory ./cpp_codes for all files that ends with .cpp
 all_cpp_codes = "./cpp_codes/*.cpp"
+compiler_flags = "-larmadillo" #Linker to Armadillo.
 
 #The echo command prints everything you write after "echo". For instance writing "echo yo bro" will print out "yo bro" in the command line.
 os.system("echo compiling...")
-os.system("g++ -o main.out" + " " + all_cpp_codes) #compile codes
+os.system("g++ -o main.out" + " " + all_cpp_codes + " " + compiler_flags) #compile codes
+#You may replace the line above with os.system(" ".join(["g++", "-o main.out", all_cpp_codes, compiler_flags]))
 
 os.system("echo executing...")
 os.system("./main.out" + " " + str(N) + " " + algorithm) #Execute code
@@ -439,6 +440,7 @@ if not os.path.exists(plot_path):
 
 os.system(" ".join(["mv", filename_plot, plot_path])) #Move file to correct directory.
 os.system("echo done.")
+
 ```
 This is used together with the *main.cpp* code
 ```C++
@@ -446,8 +448,6 @@ This is used together with the *main.cpp* code
 #include <cmath>
 #include <string>
 #include <time.h>
-
-using namespace std;
 
 double f(double x);
 

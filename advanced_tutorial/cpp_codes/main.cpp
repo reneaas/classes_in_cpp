@@ -3,8 +3,6 @@
 #include <string>
 #include <time.h>
 
-using namespace std;
-
 double f(double x);
 
 int main(int argc, char const *argv[]) {
@@ -34,7 +32,7 @@ int main(int argc, char const *argv[]) {
     timeused = (double) (end-start)/CLOCKS_PER_SEC;
     my_solver.write_to_file(filename);
   }
-  
+
   return 0;
 }
 
