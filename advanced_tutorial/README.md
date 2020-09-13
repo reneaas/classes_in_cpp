@@ -407,7 +407,6 @@ import sys
 N = int(input("Give number of mesh points N: "))
 algorithm = input("Choose algorithm: general/special: ")
 
-
 filename_plot = "_".join([algorithm, "solution", str(N)]) + ".pdf" #Name of figure file
 filename_data = "_".join([algorithm, "N", str(N)]) + ".txt" #Name of data file.
 plot_path = "/".join([".", "plots", algorithm]) #Directory to place the figure
@@ -421,7 +420,6 @@ compiler_flags = "-larmadillo" #Linker to Armadillo.
 #The echo command prints everything you write after "echo". For instance writing "echo yo bro" will print out "yo bro" in the command line.
 os.system("echo compiling...")
 os.system("g++ -o main.out" + " " + all_cpp_codes + " " + compiler_flags) #compile codes
-#You may replace the line above with os.system(" ".join(["g++", "-o main.out", all_cpp_codes, compiler_flags]))
 
 os.system("echo executing...")
 os.system("./main.out" + " " + str(N) + " " + algorithm) #Execute code
@@ -442,6 +440,7 @@ os.system(" ".join(["mv", filename_plot, plot_path])) #Move file to correct dire
 os.system("echo done.")
 
 ```
+
 This is used together with the *main.cpp* code
 ```C++
 #include "tridiagonalmatrixsolver.hpp"
