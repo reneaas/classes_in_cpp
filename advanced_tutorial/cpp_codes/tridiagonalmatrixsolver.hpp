@@ -19,8 +19,6 @@ m_v: Solution vector of the matrix equation.
 */
 class TridiagonalMatrixSolver {
 //Declare variables as "protected" so that derived classes can inherit the member variables.
-private:
-  double m_stepsize;
 protected:
   int m_N;
   vec m_q, m_x, m_v;

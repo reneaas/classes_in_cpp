@@ -91,7 +91,6 @@ We now return to the specific declaration of the superclass, which we list below
 class TridiagonalMatrixSolver {
 protected:
   int m_N;
-  double m_stepsize;
   vec m_q, m_x, m_v;
   ofstream m_ofile;
 
@@ -109,7 +108,7 @@ Let's break the code down (and the motivation for all its content):
     - Here we've declared a set of variables that all derived classes will use:
         1. *m_N* is the size of the vectors.
         2. *m_q* is the RHS of the matrix equation studied here.
-        3. *m_x* is the mesh points which is computed using *m_stepsize*.
+        3. *m_x* is the mesh points.
         4. *m_v* is the solution vector of the matrix equation Av=q.
     - Notice, however, that *m_stepsize* is declared as private in the superclass since this member variable is only used by the superclass and so inheritance by derived classes is unnecessary.
 3. The public methods should be needed by every (or more than one) derived class, or else it should be declared in the derived class instead.
@@ -131,7 +130,6 @@ using namespace arma;
 class TridiagonalMatrixSolver {
 protected:
   int m_N;
-  double m_stepsize;
   vec m_q, m_x, m_v;
   ofstream m_ofile;
 
@@ -175,12 +173,11 @@ Moving forward, let's look at the specific implementation of the superclass foun
 void TridiagonalMatrixSolver::initialize(int N, vec f(vec x))
 {
   m_N = N;
-  m_stepsize = 1./(m_N+1);
+  double h = 1./(m_N+1);
   m_q = vec(m_N);
   m_v = vec(m_N);
   m_x = linspace(m_stepsize, 1-m_stepsize, m_N);
-  double hh = m_stepsize*m_stepsize;
-  m_q = hh*f(m_x);
+  m_q = h*h*f(m_x);
 }
 
 void TridiagonalMatrixSolver::write_to_file(string filename)
@@ -198,7 +195,7 @@ Let's break down the content here:
 2. The *initialize* method only contains code that is needed by all derived classes:
     - We specify the parameter m_N (which is the length of the vectors in the class).
     - We use this parameter to specify:
-      * The stepsize *m_stepsize*
+      * The stepsize is only defined as a local variable since it's only needed here.
       * The solution vector *m_v*
       * The mesh point vector *m_x*
       * The right hand side vector *m_q*.

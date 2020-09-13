@@ -3,12 +3,11 @@
 void TridiagonalMatrixSolver::initialize(int N, vec f(vec x))
 {
   m_N = N;
-  m_stepsize = 1./(m_N+1);
+  double h = 1./(m_N+1); //Local variable, only needed in this function.
   m_q = vec(m_N);
   m_v = vec(m_N);
   m_x = linspace(m_stepsize, 1-m_stepsize, m_N);
-  double hh = m_stepsize*m_stepsize;
-  m_q = hh*f(m_x);
+  m_q = h*h*f(m_x);
 }
 
 void TridiagonalMatrixSolver::write_to_file(string filename)
